@@ -134,42 +134,83 @@
 
   <main class="card">
     <!-- ANIMAL WITH HEART -->
-    <svg class="art" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="fur" x1="0" x2="1">
-          <stop offset="0" stop-color="#f7c7a1"/>
-          <stop offset="1" stop-color="#f2a97b"/>
-        </linearGradient>
-        <linearGradient id="heart" x1="0" x2="1">
-          <stop offset="0" stop-color="#ff4d7d"/>
-          <stop offset="1" stop-color="#ff1f68"/>
-        </linearGradient>
-      </defs>
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Skin -->
+    <radialGradient id="skin" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#f7fbff"/>
+      <stop offset="100%" stop-color="#dceaf2"/>
+    </radialGradient>
 
-      <path d="M250 50 C250 33 270 25 282 38
-               C294 25 314 33 314 50
-               C314 78 282 92 282 106
-               C282 92 250 78 250 50Z"
-            fill="url(#heart)"/>
+    <!-- Hair -->
+    <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d6dde3"/>
+    </linearGradient>
 
-      <path d="M90 120 C90 70 140 40 190 60
-               C240 40 290 70 290 120
-               C290 180 240 210 190 210
-               C140 210 90 180 90 120Z"
-            fill="url(#fur)"/>
+    <!-- Eye iris -->
+    <radialGradient id="iris" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#bcecff"/>
+      <stop offset="60%" stop-color="#5aa7e8"/>
+      <stop offset="100%" stop-color="#2e6db2"/>
+    </radialGradient>
 
-      <path d="M110 92 L95 55 L140 78 Z" fill="#f2a97b"/>
-      <path d="M270 92 L285 55 L240 78 Z" fill="#f2a97b"/>
+    <!-- Glow -->
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
 
-      <circle cx="160" cy="130" r="8"/>
-      <circle cx="220" cy="130" r="8"/>
+  <!-- Head -->
+  <circle cx="160" cy="175" r="92" fill="url(#skin)"/>
 
-      <path d="M190 144 C186 144 182 148 182 152
-               C182 160 190 164 190 170
-               C190 164 198 160 198 152
-               C198 148 194 144 190 144Z"
-            fill="#ff7aa2"/>
-    </svg>
+  <!-- Hair base -->
+  <path d="
+    M60 130
+    C70 65 140 50 160 75
+    C180 50 250 65 260 130
+    C255 95 230 95 220 115
+    C210 80 185 90 180 115
+    C170 85 150 85 140 115
+    C135 90 110 80 100 115
+    C90 95 65 95 60 130
+  " fill="url(#hair)"/>
+
+  <!-- Hair curls (front details) -->
+  <path d="M105 95 C90 120 115 135 120 115" fill="none" stroke="#d6dde3" stroke-width="6" stroke-linecap="round"/>
+  <path d="M215 95 C230 120 205 135 200 115" fill="none" stroke="#d6dde3" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Eye white -->
+  <ellipse cx="160" cy="175" rx="36" ry="42" fill="#ffffff"/>
+
+  <!-- Iris -->
+  <circle cx="160" cy="182" r="24" fill="url(#iris)" filter="url(#softGlow)"/>
+
+  <!-- Pupil -->
+  <circle cx="160" cy="185" r="10" fill="#0d2b45"/>
+
+  <!-- Eye highlights -->
+  <circle cx="168" cy="172" r="6" fill="#ffffff"/>
+  <circle cx="152" cy="190" r="3" fill="#ffffff" opacity="0.8"/>
+
+  <!-- Eyelid -->
+  <path d="M124 165 Q160 145 196 165" 
+        stroke="#b7cdd9" stroke-width="3" fill="none"/>
+
+  <!-- Mouth -->
+  <path d="M145 225 Q160 235 175 225" 
+        stroke="#c48397" stroke-width="3" fill="none"/>
+
+  <!-- Blush -->
+  <ellipse cx="118" cy="210" rx="8" ry="5" fill="#f3a6b8" opacity="0.55"/>
+  <ellipse cx="202" cy="210" rx="8" ry="5" fill="#f3a6b8" opacity="0.55"/>
+
+</svg>
+
 
     <h1>Armandex will i get 10 billion wooz?</h1>
 
